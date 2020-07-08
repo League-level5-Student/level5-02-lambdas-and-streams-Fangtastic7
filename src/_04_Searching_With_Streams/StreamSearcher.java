@@ -4,18 +4,21 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.Stream;
 
+import org.omg.Messaging.SyncScopeHelper;
+
 public class StreamSearcher {
 	// 1. This method takes an array of Strings and a String. The method returns the number
 	// of times the String parameter appears in the String array. This method will
 	// use Streams to help us out.
 	public long containsCount(String[] strArr, String strToCount) {
 		//2. Convert the String array to a stream
-		
+		Stream<String> stream = Stream.of(strArr); //ask about Arrays.stream(arr) or Stream.of(arr)
 		//3. Use the filter method with a lambda to extract all the String
 		//   elements that match the String parameter.
-		
+		int counter = 0;
+		counter += stream.filter((e)-> e.equals(strToCount)).count();
 		//4. Return the count of the filtered stream.
 		
-		return 0;
+		return counter;
 	}
 }
